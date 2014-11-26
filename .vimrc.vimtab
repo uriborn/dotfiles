@@ -1,0 +1,10 @@
+"------------------------------------------------
+" Vimのタブ関連
+"------------------------------------------------
+nnoremap te :<C-u>tabnew<CR>:e .<CR>
+" nnoremap te :<C-u>tabnew<CR>:VimFiler .<CR> " vimfilerよりNERDTREEにする
+nnoremap tn :<C-u>tabnext<CR>
+nnoremap tp :<C-u>tabprevious<CR>
+nnoremap ee :e .<CR>
+" nnoremap ee :VimFiler .<CR> " vimfilerよりNERDTREEにする
+nnoremap <silent> td :<C-u>tabclose<CR>

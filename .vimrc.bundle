@@ -1,0 +1,89 @@
+"-------------------------
+" NeoBundle の設定
+"-------------------------
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" ここにPluginをセット
+
+" クオートとか括弧の対を自動入力
+NeoBundle 'Townk/vim-autoclose'
+
+" for Scala
+NeoBundle 'derekwyatt/vim-scala'
+" for Playframework
+NeoBundle 'gre/play2vim'
+
+" 補完
+NeoBundle 'Shougo/neocomplcache'
+
+" スニペット
+NeoBundle 'Shougo/neosnippet'
+
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+" NeoBundle 'Shougo/vimfiler' " vimfilerよりNERDTREEにする
+NeoBundle 'Shougo/unite.vim'
+
+" vim 上でgit操作
+NeoBundle 'tpope/vim-fugitive'
+
+" Color Schema
+NeoBundle 'tomasr/molokai.git'
+
+NeoBundle 'Shougo/neosnippet-snippets'
+
+" スクロールをスムーズにー
+NeoBundle 'yuroyoro/smooth_scroll.vim'
+
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-rails'
+
+" NeoBundle 'trinity.vim'
+NeoBundle 'scrooloose/nerdtree.git'
+
+" コメントアウト処理
+NeoBundle 'scrooloose/nerdcommenter.git'
+
+" XMLとかHTMLとかの編集機能を強化する
+NeoBundle 'xmledit'
+
+" Powerline
+" NeoBundle 'alpaca-tc/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline'
+" NeoBundle 'Lokaltog/powerline-fontpatcher'
+
+" lightline.vim
+NeoBundle 'itchyny/lightline.vim'
+
+" 高機能整形・桁揃え
+NeoBundle 'Align'
+
+" smartchr.vim : ==などの前後を整形
+NeoBundle 'smartchr'
+
+" markdown
+NeoBundle 'tpope/vim-markdown'
+
+" Ruby向けにendを自動挿入してくれる
+NeoBundle 'tpope/vim-endwise'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
+

@@ -1,0 +1,139 @@
+source ~/.vim/config/vundle.conf
+
+syntax on
+
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+" コメントアウトの色を変更
+hi Comment ctermfg=blue
+hi Directory ctermfg=green
+
+" 自動改行オフ
+set tw=0
+
+" 行番号表示
+set number
+
+" swapファイル作らない
+set noswapfile
+
+" 対応する括弧を表示する
+set showmatch
+
+" 検索結果ハイライトを消す
+set hlsearch
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+" ステータスラインに開いているファイル名を表示
+set laststatus=2
+set statusline=%F%m%r%h%w
+
+" yankした文字を連続コピー
+vnoremap <silent> <C-p> "0p<CR>
+
+set cursorline
+
+set ruler
+
+" sbt compileを:makeで実行
+" source ~/.vim/config/sbt_compile.conf
+
+"=======Key Bind===========
+" 挿入モードの移動をemacs風に
+source ~/.vim/config/cursor_move_like_emacs.conf
+
+" 新規windowを右側,下側に開く
+source ~/.vim/config/new_window.conf
+
+" vimタブ関連
+source ~/.vim/config/vim_tab.conf
+
+" vimgrepの設定
+source ~/.vim/config/vimgrep.conf
+"==========================
+
+" vim explorerの設定
+"source ~/.vim/config/explorer.conf
+
+" 行末の空白を強調
+source ~/.vim/config/highlight_empty_string_at_line_end.conf
+
+" タブの設定
+source ~/.vim/config/tab.conf
+
+" 検索関連
+source ~/.vim/config/search.conf
+
+"vimrcをリローダブルにする
+source ~/.vim/config/reload_vimrc.conf
+
+"neocomplcache設定
+source ~/.vim/config/neocomplcache.conf
+
+"neosnippet設定
+source ~/.vim/config/neosnippet.conf
+
+"neosnippet用のsnippet(snipmate-snippets)設定
+"source ~/.vim/config/snipmate.conf
+
+"vim-endwise設定
+source ~/.vim/config/vim-endwise.conf
+
+"trinity設定
+source ~/.vim/config/trinity.conf
+
+"gitv設定
+source ~/.vim/config/gitv.conf
+
+"vimshell設定
+source ~/.vim/config/vimshell.conf
+
+" vimdiff設定
+source ~/.vim/config/vimdiff.conf
+
+" nerdTree設定
+source ~/.vim/config/nerdtree.conf
+
+if !has("gui_running")
+  " vimfiler設定
+  source ~/.vim/config/vimfiler.conf
+endif
+
+" unite.vimの設定
+source ~/.vim/config/unite.conf
+
+" ctrlp.vimの設定
+source ~/.vim/config/ctrlp.conf
+
+" vim-fugitiveの設定
+source ~/.vim/config/vim-fugitive.conf
+
+" vim-indent-guidesの設定
+"source ~/.vim/config/vim-indent-guides.conf
+
+" errormarkerの設定
+source ~/.vim/config/errormarker.conf
+
+" ctags の関数ジャンプ
+nnoremap <C-]> g<C-]>
+
+" かっことかを補完
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
+vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
+" MacVimを起動時にフルスクリーンに
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+  set noundofile
+endif

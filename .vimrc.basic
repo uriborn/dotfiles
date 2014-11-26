@@ -1,0 +1,22 @@
+"------------------------------------------------
+" 基本設定
+"------------------------------------------------
+syntax on           " シンタックスハイライトをON
+let mapleader = "," " キーマップリーダー
+set scrolloff=5     " スクロール時の余白確保
+set textwidth=0     " 一行に長い文章を書いていても自動折り返しをしない
+set nobackup        " バックアップを取らない
+set autoread        " 他で書き換えられたら自動で読みなおす
+set noswapfile      " スワップファイル作らない
+set hidden          " 編集中でも他のファイルを開けるようにする
+set vb t_vb=        " ビープを鳴らさない
+set showcmd         " コマンドをステータス行に表示
+set showmode        " 現在のモードを表示
+set notitle         " vimの初期表示を消す
+
+set clipboard+=unnamed " OSのクリップボードを使用する
+set clipboard=unnamed  " ヤンクした文字は、システムのクリップボードに入れる
+
+command! Ev edit $MYVIMRC   " :Ev で .vimrcを編集
+command! Rv source $MYVIMRC " :Rv で .vimrcを反映
+

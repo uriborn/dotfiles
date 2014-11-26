@@ -1,0 +1,283 @@
+"------------------------------------------------
+" プラグイン毎の設定
+"------------------------------------------------
+
+"-----------------
+" neosnippet
+"-----------------
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+"-----------------
+" nerdtree
+"-----------------
+"<C-s>でNERDTreeをオンオフ。いつでもどこでも。
+nmap <silent> <C-s>      :NERDTreeToggle<CR>
+vmap <silent> <C-s> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-s>      :NERDTreeToggle<CR>
+imap <silent> <C-s> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-s> <C-u>:NERDTreeToggle<CR>
+
+" 引数なしでvimを開いたらNERDTreeを起動、
+" 引数ありならNERDTreeは起動しない、引数で渡されたファイルを開く。
+" How can I open a NERDTree automatically when vim starts up if no files were specified?
+" autocmd vimenter * if !argc() | NERDTree | endif
+
+" 他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
+" How can I close vim if the only window left open is a NERDTree?
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" NERDChristmasTree カラー表示する。
+" Defaultでカラー表示、カラースキーマを設定しているとそちらが優先される？
+" Values: 0 or 1.
+" Default: 1.
+let g:NERDChristmasTree=1
+
+" ファイルオープン後の動作
+" 0 : そのままNERDTreeを開いておく。
+" 1 : NERDTreeを閉じる。
+" Values: 0 or 1.
+" Default: 0
+let g:NERDTreeQuitOnOpen=0
+
+" NERDTreeIgnore 無視するファイルを設定する。
+" '\.vim$'ならばfugitive.vimなどのファイル名が表示されない。
+" \ エスケープ記号
+" $ ファイル名の最後
+" let g:NERDTreeIgnore=['\.clean$', '\.swp$', '\.bak$', '\~$']
+" let g:NERDTreeIgnore=['\.vim$', '\.clean$']
+" let g:NERDTreeIgnore=['\.vim$', '\~$']
+" let g:NERDTreeIgnore=[]
+
+" NERDTreeShowHidden 隠しファイルを表示するか？
+" f コマンドの設定値
+" 0 : 隠しファイルを表示しない。
+" 1 : 隠しファイルを表示する。
+"Values: 0 or 1.
+"Default: 0.
+let g:NERDTreeShowHidden=1
+
+" ディレクトリだけ表示してファイル名は隠す。
+" ファイルの表示、非表示をトグルするときの初期値。
+" F コマンドの設定初期値
+" 0 : 最初からファイルを表示しない。
+" 1 : 最初からファイルを表示する。
+" Values: 0 or 1.
+" Default: 1.
+let g:NERDTreeShowFiles=1
+
+" カーソルラインをハイライト表示する。
+" （カラースキーマが優先される？）
+" 0 : 色付けしない。
+" 1 : カラー表示をする。
+" Values: 0 or 1.
+" Default: 1.
+let g:NERDTreeHighlightCursorline=1
+
+" ブックマークリストの表示。
+" 0 : ブックマークリストを最初から表示しない。
+" 1 : ブックマークリストを最初から表示する。
+" Values: 0 or 1.
+" Default: 0.
+let g:NERDTreeShowBookmarks=1
+
+" NERDTreeのツリーを開く場所、左側か、右側か。
+" Values: "left" or "right"
+" Default: "left".
+let g:NERDTreeWinPos="left"
+
+" NERDTreeのツリーの幅
+" Default: 31.
+let g:NERDTreeWinSize=25
+
+" ブックマークや、ヘルプのショートカットをメニューに表示する。
+" 0 表示する
+" 1 表示しない
+" Values: 0 or 1.
+" Default: 1.
+let g:NERDTreeMinimalUI=1
+
+" NERDTreeを+|`などを使ってツリー表示をする。
+" ディレクトリが閉じている場合には+を先頭につける。
+" ディレクトリが開いている場合には~を先頭につける。
+" ファイルには-を先頭につける。
+" 0 : 綺麗に見せる。
+" 1 : +|`などを使わない
+" Values: 0 or 1
+" Default: 1.
+let g:NERDTreeDirArrows=0
+
+" マウス操作方法
+" NERDTreeMouseMode
+" Values: 1, 2 or 3.
+" Default: 1.
+" 1 : ファイル、ディレクトリ両方共ダブルクリックで開く。
+" 2 : ディレクトリのみシングルクリックで開く。
+" 3 : ファイル、ディレクトリ両方共シングルクリックで開く。
+let g:NERDTreeMouseMode=2
+
+" NERDTreeBookmarksFile
+" ブックマークを記録したファイルの設置場所を指定。
+" Values: a path
+" Default: $HOME/.NERDTreeBookmarks
+
+" NERDTreeShowLineNumbers
+" 0 : 行番号を表示しない。
+" 1 : 行番号を表示する。
+" Values: 0 or 1.
+" Default: 0.
+let NERDTreeShowLineNumbers=0
+
+" NERDTreeStatusline NERDtreeウィンドウにステータスラインを表示。
+" Values: Any valid statusline setting.
+" Default: %{b:NERDTreeRoot.path.strForOS(0)}
+
+"ファイルを縦方向に開く
+let g:NERDTreeMapOpenSplit = '<C-l>e'
+let g:NERDTreeMapOpenVSplit = '<C-e><C-e>'
+
+"-----------------
+" vimfiler
+"-----------------
+"" vimfiler上で's'で下に、'v'で左にファイルを開く
+"nnoremap <F2> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+"autocmd! FileType vimfiler call g:my_vimfiler_settings()
+"function! g:my_vimfiler_settings()
+"  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+"  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+"  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+"endfunction
+"
+"let s:my_action = { 'is_selectable' : 1 }
+"function! s:my_action.func(candidates)
+"  wincmd p
+"  exec 'split '. a:candidates[0].action__path
+"endfunction
+"call unite#custom_action('file', 'my_split', s:my_action)
+"
+"let s:my_action = { 'is_selectable' : 1 }
+"function! s:my_action.func(candidates)
+"  wincmd p
+"  exec 'vsplit '. a:candidates[0].action__path
+"endfunction
+"call unite#custom_action('file', 'my_vsplit', s:my_action)
+"
+"" explorerを使用する際は、vimfileを使う
+"let g:vimfiler_as_default_explorer = 1
+"
+"" セーフモードを無効にした状態で起動する
+"let g:vimfiler_safe_mode_by_default = 0"
+
+"-----------------
+" unite.vim
+"-----------------
+" prefix key
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" ファイル一覧
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
+nnoremap <silent> [unite]gc       :<C-u>UniteWithCurrentDir git/conflicts -buffer-name=files<CR>
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+
+" grep検索
+nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼び出し
+nnoremap <silent> ,r :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher)を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+let s:unite_git_files_conflict = {
+  \   'name' : 'git/files/conflict',
+  \ }
+function! s:unite_git_files_conflict.gather_candidates(args, context)
+  let output = unite#util#system('git diff-files --name-only --diff-filter=U')
+  let candidates = map(split(output, "\n"), '{
+    \ "word" : fnamemodify(v:val, ":p"),
+    \ "source" : "git/files/conflict",
+    \ "kind" : "file",
+    \ "action__path" : fnamemodify(v:val, ":p"),
+    \ }')
+  return candidates
+endfunction
+call unite#define_source(s:unite_git_files_conflict)
+
+"-----------------
+" Fugitive.vim
+"-----------------
+nnoremap <silent> <Space>gb :Gblame<CR>
+nnoremap <silent> <Space>gd :Gdiff<CR>
+nnoremap <silent> <Space>gs :Gstatus<CR>
+
+"-----------------------
+" NERD_commenter.vim
+"-----------------------
+let NERDSpaceDelims = 1
+nmap gc <Plug>NERDCommenterToggle
+vmap gc <Plug>NERDCommenterToggle
+
+"-----------------------
+" powerline
+"-----------------------
+" let g:Powerline_symbols = 'fancy'
+
+"-----------------------
+" lightline
+"-----------------------
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"\u2b64":""}',
+      \ },
+      \ }
+
+"------------------------------------
+" Align
+"------------------------------------
+" Alignを日本語環境で使用するための設定
+let g:Align_xstrlen = 3
+
+"------------------------------------
+" smooth_scroll.vim
+"------------------------------------
+map  :call SmoothScroll("d", 1,  1)<CR>
+map  :call SmoothScroll("u", 1,  1)<CR>"

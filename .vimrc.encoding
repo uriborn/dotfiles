@@ -1,0 +1,16 @@
+"------------------------------------------------
+" 編集関連
+"------------------------------------------------
+set ffs=unix,dos,mac " 改行文字
+scriptencoding utf-8
+set encoding=utf-8   " デフォルトエンコーディング
+
+" 以下のファイルの時は文字コードをutf-8に設定
+autocmd FileType svn :set fileencoding=utf-8
+autocmd FileType js :set fileencoding=utf-8
+autocmd FileType css :set fileencoding=utf-8
+autocmd FileType html :set fileencoding=utf-8
+autocmd FileType xml :set fileencoding=utf-8
+autocmd FileType java :set fileencoding=utf-8
+autocmd FileType scala :set fileencoding=utf-8
+

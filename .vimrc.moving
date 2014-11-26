@@ -1,0 +1,21 @@
+"------------------------------------------------
+" 移動設定
+"------------------------------------------------
+
+" カーソルを表示行で移動する
+nnoremap h <Left>
+nnoremap j gj
+nnoremap k gk
+nnoremap l <Right>
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
+" Insert mode での移動
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
+" Insert mode でもhjklで移動(Ctrl)
+inoremap <C-j> <Down>
+" 移動してくれない。。(何かとバッティングしてる)
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>

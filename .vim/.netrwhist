@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/uryu/workspace/push/push-notification/module/tool/src/main/resources'
+let g:netrw_dirhist_2='/Users/uryu/src/playframework/framework'
+let g:netrw_dirhist_3='/Users/uryu/workspace/dna/dna-sds/project/project'
+let g:netrw_dirhist_4='/Users/uryu/scripts/migration_for_dna_2596'
+let g:netrw_dirhist_5='/Users/uryu/workspace/push/push-notification/module/console/conf/document'
+let g:netrw_dirhist_6='/Users/uryu/.oh-my-zsh/themes'
+let g:netrw_dirhist_7='/Users/uryu/.oh-my-zsh/lib'
+let g:netrw_dirhist_8='/Users/uryu/.zsh_configs'

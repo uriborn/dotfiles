@@ -1,0 +1,19 @@
+# ls
+alias ls='gls --color=auto'
+alias ll='ls -lF'
+alias la='ls -laF'
+
+# du/df
+alias du="du -h"
+alias df="df -h"
+alias duh="du -h ./ --max-depth=1"
+
+# grep
+alias grep='grep -En --color=auto'
+
+# git
+alias gc='git commit'
+
+# ctags
+#alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
+

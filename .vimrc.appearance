@@ -1,0 +1,14 @@
+"------------------------------------------------
+" 表示
+"------------------------------------------------
+set number     " 行番号表示
+set showmatch  " 対応する括弧を表示する
+set cursorline " カーソル行をハイライト
+
+" 行末の空白を強調
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+

@@ -1,0 +1,12 @@
+"------------------------------------------------
+" 新規Windowを開く際の設定
+"------------------------------------------------
+" 新規windowを右側に開く
+map <C-w><C-v> :bel vnew<CR>:VimFiler .<CR>
+"map <C-w><C-v> :Vexplore! .<CR>
+"map! <C-w><C-v> <Esc>:Vexplore!<CR>
+" 新規windowを下側に開く
+set splitbelow
+map <C-w><C-h> :bel new<CR>:VimFiler .<CR>
+"map <C-w><C-h> :Hexplore .<CR>
+"map! <C-w><C-h> <Esc>:Hexplore<CR>

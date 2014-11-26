@@ -1,0 +1,36 @@
+"------------------------------------------------
+" neocomplcache.vim
+"------------------------------------------------
+set infercase
+
+let g:neocomplcache_enable_at_startup = 1
+
+let g:neocomplcache_force_overwrite_completefunc = 1
+" let g:neocomplcache#sources#rsense#home_directory = expand('~/.bundle/rsense-0.3')
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_skip_auto_completion_time = '0.3'
+
+" シンタックスをキャッシュするときの最小文字長を3に
+let g:neocomplcache_min_syntax_length = 3
+
+" C-y を入力することで選択候補を確定させてポップアップを閉じる
+" inoremap <expr><C-y> pumvisible() ? neocomplcache#close_popup() : "\<C-y>"
+
+" 補完候補が表示されている場合は補完候補を確定。そうでない場合は改行
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "<CR>"
+
+" 補完をキャンセル
+"inoremap <expr><C-e> neocomplcache#close_popup()
+
+"imap <expr><C-g>     neocomplcache#undo_completion()
+"imap <expr><CR>      neocomplcache#smart_close_popup() . "<CR>" . "<Plug>DiscretionaryEnd"
+"imap <silent><expr><S-TAB> pumvisible() ? "\<C-P>" : "\<S-TAB>"
+"imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_jump_or_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"ユーザ定義の辞書を指定
+let g:neocomplcache_dictionary_filetype_lists = {
+  \ 'default' : '',
+  \ 'scala' : $HOME . '/.vim/dict/scala.dict',
+  \ }
+
