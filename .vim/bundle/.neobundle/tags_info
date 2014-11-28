@@ -3,6 +3,7 @@ lightline.vim
 molokai
 neobundle.vim
 neocomplcache
+neomru.vim
 neosnippet
 neosnippet-snippets
 nerdcommenter
