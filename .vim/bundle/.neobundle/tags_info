@@ -1,6 +1,5 @@
 Align
 lightline.vim
-molokai
 neobundle.vim
 neocomplcache
 neomru.vim
@@ -13,8 +12,10 @@ smartchr
 smooth_scroll.vim
 unite.vim
 vim-autoclose
+vim-colors-solarized
 vim-endwise
 vim-fugitive
+vim-indent-guides
 vim-markdown
 vim-rails
 vim-ruby

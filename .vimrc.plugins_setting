@@ -281,3 +281,28 @@ let g:Align_xstrlen = 3
 "------------------------------------
 map :call SmoothScroll("d", 1, 1)<CR>
 map :call SmoothScroll("u", 1, 1)<CR>
+
+"------------------------------------
+" vim-indent-guides
+"------------------------------------
+nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
+au FileType ruby,scala IndentGuidesEnable
+au FileType ruby,scala let indent_guides_auto_colors = 0
+au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
+au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=237
+au FileType ruby,scala let indent_guides_color_change_percent = 10
+au FileType ruby,scala let indent_guides_guide_size = 2
+
+" nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
+" let g:indent_guides_auto_colors = 0
+" let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" if 'dark' == &background
+    " hi IndentGuidesOdd  ctermbg=black
+    " hi IndentGuidesEven ctermbg=darkgrey
+" else
+    " hi IndentGuidesOdd  ctermbg=white
+    " hi IndentGuidesEven ctermbg=lightgrey
+" endif
