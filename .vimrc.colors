@@ -6,6 +6,12 @@
 " let g:rehash256 = 1
 set background=dark
 colorscheme solarized
+" if stridx($TERM, "xterm-256color") >= 0
+"   let g:solarized_termcolors= 256
+"   let g:solarized_contrast = "high"
+"   let g:solarized_termtrans = 1
+"   colorscheme solarized
+" endif
 
 " コメントアウトの色を変更
 hi Comment ctermfg=blue

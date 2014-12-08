@@ -1,5 +1,6 @@
 Align
 lightline.vim
+molokai
 neobundle.vim
 neocomplcache
 neomru.vim

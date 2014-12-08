@@ -43,7 +43,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-fugitive'
 
 " Color Schema
-" NeoBundle 'tomasr/molokai.git'
+NeoBundle 'tomasr/molokai.git'
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'Shougo/neosnippet-snippets'
