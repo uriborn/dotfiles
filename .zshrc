@@ -48,13 +48,17 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby osx bundler brew rails tmux scala rbenv)
+plugins=(git ruby osx bundler brew rails scala)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/uryu/.rbenv/shims:/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/bin:/usr/local/bin:/usr/local/sbin:/Users/uryu/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
+# export PATH="$HOME/.rbenv/bin:/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home/bin:/usr/local/bin:/usr/local/sbin:/Users/uryu/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
+export JDK16_HOME=/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+export PATH="$JDK16_HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
+export RBENV_ROOT=$HOME/.rbenv
+eval "$(rbenv init - zsh)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
