@@ -34,4 +34,5 @@ source ~/.vimrc.newwindow
 source ~/.vimrc.macvim
 " vimdiff設定
 source ~/.vimrc.vimdiff
-
+" タグ関連
+source ~/.vimrc.tags

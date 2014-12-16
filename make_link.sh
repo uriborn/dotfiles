@@ -24,6 +24,7 @@ ln -sf ~/dotfiles/.vimrc.newwindow ~/.vimrc.newwindow
 ln -sf ~/dotfiles/.vimrc.plugins_setting ~/.vimrc.plugins_setting
 ln -sf ~/dotfiles/.vimrc.search ~/.vimrc.search
 ln -sf ~/dotfiles/.vimrc.statusline ~/.vimrc.statusline
+ln -sf ~/dotfiles/.vimrc.tags ~/.vimrc.tags
 ln -sf ~/dotfiles/.vimrc.vimdiff ~/.vimrc.vimdiff
 ln -sf ~/dotfiles/.vimrc.vimtab ~/.vimrc.vimtab
 ln -sf ~/dotfiles/.zsh.alias ~/.zsh.alias
