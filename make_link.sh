@@ -30,4 +30,4 @@ ln -sf ~/dotfiles/.vimrc.vimtab ~/.vimrc.vimtab
 ln -sf ~/dotfiles/.zsh.alias ~/.zsh.alias
 ln -sf ~/dotfiles/.zsh.custom ~/.zsh.custom
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.zshrc.bk ~/.zshrc.bk
+ln -sf ~/dotfiles/zsh ~/zsh
