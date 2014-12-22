@@ -12,7 +12,10 @@ alias duh="du -h ./ --max-depth=1"
 alias grep='grep -En --color=auto'
 
 # git
-alias gc='git commit'
+alias gst='git status'
+alias gd='git diff'
+alias ga='git add'
+alias glbg='git log-branch-graph'
 
 # ctags
 #alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
