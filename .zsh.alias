@@ -12,9 +12,6 @@ alias duh="du -h ./ --max-depth=1"
 alias grep='grep -En --color=auto'
 
 # git
-alias gst='git status'
-alias gd='git diff'
-alias ga='git add'
 alias glbg='git log-branch-graph'
 
 # ctags

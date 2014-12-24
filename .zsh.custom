@@ -1,40 +1,3 @@
-# PROMPT
-PROMPT="%% "
-PROMPT2="> "
-SPROMPT="%r is correct? [n,y,a,e]: "
-RPROMPT='[%F{cyan}%~%f `rprompt-git-current-branch`]'
-RPROMPT2="%K{green}%_%k"
-## プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
-## 入力が右端まで来たらプロンプトを消す
-setopt transient_rprompt
-
-## gitのカレントブランチをプロンプトに表示させる
-function rprompt-git-current-branch {
-  local name st color
-  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-    return
-  fi
-  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-  if [[ -z $name ]]; then
-    return
-  fi
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=${fg[green]}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=${fg[yellow]}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=${fg_bold[red]}
-  else
-    color=${fg[red]}
-  fi
-
-  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-  # これをしないと右プロンプトの位置がずれる
-  echo "%{$color%}$name%{$reset_color%} "
-}
-
 # history
 HISTFILE=/Users/uryu/.zsh_history
 HISTSIZE=100000
@@ -97,7 +60,7 @@ zstyle ':chpwd:*' recent-dirs-max 500 # cdrの履歴を保存する個数
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 
-source ~/zsh/plugins/zaw/zaw.zsh
+source $HOME/dotfiles/zsh/plugins/zaw/zaw.zsh
 zstyle ':filter-select:highlight' selected fg=black,bg=white,standout
 zstyle ':filter-select' case-insensitive yes
 
