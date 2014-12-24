@@ -30,3 +30,5 @@ inoremap <C-o> <ESC>:<C-U>YRPaste 'p'<CR>i
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
+" Jsonを整形
+command! Jq :%!jq '.'
