@@ -5,7 +5,7 @@ export ZSH=$HOME/dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="steeef"
+# ZSH_THEME="wedisagree"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,6 +53,7 @@ plugins=(git bundler)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/dotfiles/zsh/themes/wedisagree.zsh-theme
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
