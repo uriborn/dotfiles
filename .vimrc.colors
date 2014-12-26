@@ -14,8 +14,8 @@ colorscheme solarized
 " endif
 
 " コメントアウトの色を変更
-hi Comment ctermfg=blue
-hi Directory ctermfg=green
+" hi Comment ctermfg=blue
+" hi Directory ctermfg=green
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"
