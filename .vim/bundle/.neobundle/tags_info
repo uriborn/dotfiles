@@ -1,7 +1,9 @@
 Align
+ghcmod-vim
 html5.vim
 lightline.vim
 molokai
+neco-ghc
 neobundle.vim
 neocomplcache
 neomru.vim
@@ -22,5 +24,6 @@ vim-markdown
 vim-rails
 vim-ruby
 vim-scala
+vim2hs
 vimproc.vim
 xmledit
