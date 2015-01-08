@@ -19,6 +19,9 @@ vim-autoclose
 vim-colors-solarized
 vim-endwise
 vim-fugitive
+vim-go
+vim-go-extra
+vim-godef
 vim-indent-guides
 vim-markdown
 vim-rails

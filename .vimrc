@@ -36,3 +36,5 @@ source ~/.vimrc.macvim
 source ~/.vimrc.vimdiff
 " タグ関連
 source ~/.vimrc.tags
+" Go言語設定
+source ~/.vimrc.golang

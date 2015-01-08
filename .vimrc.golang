@@ -1,0 +1,9 @@
+"------------------------------------------------
+" Go言語設定
+"------------------------------------------------
+set path+=$GOPATH/src/**
+let g:go_fmt_command = "goimports"
+au BufWritePre *.go Fmt
+au BufNewFile, BufRead *.go set sw=4 noexpandtab ts=4 completeopt=menu, preview
+au FileType go compiler go
+set completeopt=menu,preview

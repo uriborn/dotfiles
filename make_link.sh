@@ -27,4 +27,5 @@ ln -sf ~/dotfiles/.vimrc.statusline ~/.vimrc.statusline
 ln -sf ~/dotfiles/.vimrc.tags ~/.vimrc.tags
 ln -sf ~/dotfiles/.vimrc.vimdiff ~/.vimrc.vimdiff
 ln -sf ~/dotfiles/.vimrc.vimtab ~/.vimrc.vimtab
+ln -sf ~/dotfiles/.vimrc.golang ~/.vimrc.golang
 ln -sf ~/dotfiles/.zshrc ~/.zshrc

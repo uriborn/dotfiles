@@ -94,7 +94,14 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
 
+" Go lang
+NeoBundle 'fatih/vim-go'
+NeoBundle 'dgryski/vim-godef'
+NeoBundle 'vim-jp/vim-go-extra'
+
 call neobundle#end()
+
+set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
 
 filetype plugin indent on
 
