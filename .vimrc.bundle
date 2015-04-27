@@ -99,6 +99,9 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'dgryski/vim-godef'
 NeoBundle 'vim-jp/vim-go-extra'
 
+" 構文エラーチェック
+" NeoBundle 'scrooloose/syntastic.git'
+
 call neobundle#end()
 
 set rtp+=$GOPATH/src/github.com/nsf/gocode/vim

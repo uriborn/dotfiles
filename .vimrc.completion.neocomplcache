@@ -35,10 +35,11 @@ let g:neocomplcache_dictionary_filetype_lists = {
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
 
 " 補完候補が表示されている場合は補完候補を確定。そうでない場合は改行
-"inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>" "<CR>"だと、「pumvisible() ? neocomplcache#close_popup() : "」が表示されちゃう…
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()
+" inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+  " return neocomplcache#smart_close_popup() . "\<CR>"
+  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()

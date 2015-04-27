@@ -209,7 +209,9 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split
 " ウィンドウを縦に分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-
+" タブで開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-o> unite#do_action('tabopen')
+au FileType unite inoremap <silent> <buffer> <expr> <C-o> unite#do_action('tabopen')
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
@@ -267,12 +269,92 @@ vmap gc <Plug>NERDCommenterToggle
 "-----------------------
 " lightline
 "-----------------------
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'component': {
+"       \   'readonly': '%{&readonly?"\u2b64":""}',
+"       \ },
+"       \ }
+" let g:lightline = {
+      " \ 'colorscheme': 'landscape',
+      " \ 'component': {
+      " \   'readonly': '%{&readonly?"⭤":""}',
+      " \ },
+      " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      " \ }
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"\u2b64":""}',
+      \ 'colorscheme': 'landscape',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode'
+      \ },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return fname =~ 'NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if expand('%:t') !~? 'NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 
 "------------------------------------
 " Align
@@ -289,13 +371,13 @@ map :call SmoothScroll("u", 1, 1)<CR>
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
-nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
-au FileType ruby,scala IndentGuidesEnable
-au FileType ruby,scala let indent_guides_auto_colors = 0
-au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
-au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=237
-au FileType ruby,scala let indent_guides_color_change_percent = 10
-au FileType ruby,scala let indent_guides_guide_size = 2
+" nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
+" au FileType ruby,scala IndentGuidesEnable
+" au FileType ruby,scala let indent_guides_auto_colors = 0
+" au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesOdd  guibg=darkgrey ctermbg=235
+" au FileType ruby,scala autocmd VimEnter, Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=237
+" au FileType ruby,scala let indent_guides_color_change_percent = 10
+" au FileType ruby,scala let indent_guides_guide_size = 2
 
 " nnoremap <silent> <Space>id :<C-u>IndentGuidesToggle<Enter>
 " let g:indent_guides_auto_colors = 0
@@ -310,3 +392,15 @@ au FileType ruby,scala let indent_guides_guide_size = 2
     " hi IndentGuidesOdd  ctermbg=white
     " hi IndentGuidesEven ctermbg=lightgrey
 " endif
+
+"------------------------------------
+" syntastic
+"------------------------------------
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0

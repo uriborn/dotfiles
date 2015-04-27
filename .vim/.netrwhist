@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/uryu/src/java-apns/src/test/java/com/notnoop/apns/utils'
-let g:netrw_dirhist_2='/Users/uryu/dotfiles'
-let g:netrw_dirhist_3='/Users/uryu/src/slick'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/uryu/workspace/exp/apns_server_stub'
+let g:netrw_dirhist_2='/Users/uryu/src/java-apns-apns-1.0.0.Beta3'
+let g:netrw_dirhist_3='/Users/uryu/workspace/dna/dna-console_returns/project/target'
+let g:netrw_dirhist_4='/Users/uryu/src/java-apns-apns-1.0.0.Beta3/src/main/java/com/notnoop'
+let g:netrw_dirhist_5='/Users/uryu/workspace/push/push-notification/.git'

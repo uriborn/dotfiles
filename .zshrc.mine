@@ -11,9 +11,9 @@ if [ -x "`which go`" ]; then
 fi
 
 if [ -x "`which go`" ]; then
-  export PATH=$GOROOT/bin:$GOPATH/bin:${JAVA_HOME}/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export PATH=$GOROOT/bin:$GOPATH/bin:~/Library/Python/2.7/bin:${JAVA_HOME}/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
 else
-  export PATH=${JAVA_HOME}/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export PATH=~/Library/Python/2.7/bin:${JAVA_HOME}/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH
 fi
 export RBENV_ROOT=$HOME/.rbenv
 
